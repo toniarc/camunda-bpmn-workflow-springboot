@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0bs89rh" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.11.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+  <bpmn:process id="Process_0oxz6g2" name="lafayette-process" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Lafayette want to be involved in a Revolution">
+      <bpmn:outgoing>Flow_1abw6r9</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1abw6r9" sourceRef="StartEvent_1" targetRef="Activity_1cj6h0l" />
+    <bpmn:sequenceFlow id="Flow_1ar3i9j" sourceRef="Activity_1cj6h0l" targetRef="Activity_020ot5r" />
+    <bpmn:userTask id="Activity_020ot5r" name="Get a Taxi">
+      <bpmn:incoming>Flow_1ar3i9j</bpmn:incoming>
+      <bpmn:outgoing>Flow_099ku45</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_1cj6h0l" name="Prepare for Departure" camunda:formRef="form/prepareForDeparture.form" camunda:formRefBinding="latest">
+      <bpmn:extensionElements />
+      <bpmn:incoming>Flow_1abw6r9</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ar3i9j</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:task id="Activity_01zdfgu" name="Overthrow the monarcky">
+      <bpmn:incoming>Flow_099ku45</bpmn:incoming>
+      <bpmn:outgoing>Flow_0b3jsmj</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_099ku45" sourceRef="Activity_020ot5r" targetRef="Activity_01zdfgu" />
+    <bpmn:endEvent id="Event_0pltpyy" name="Lafayette has helped a revolution">
+      <bpmn:incoming>Flow_0b3jsmj</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0b3jsmj" sourceRef="Activity_01zdfgu" targetRef="Event_0pltpyy" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_0oxz6g2">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="155" y="142" width="84" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_06igmwl_di" bpmnElement="Activity_020ot5r">
+        <dc:Bounds x="430" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1mhzv2a_di" bpmnElement="Activity_1cj6h0l">
+        <dc:Bounds x="270" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_01zdfgu_di" bpmnElement="Activity_01zdfgu">
+        <dc:Bounds x="590" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0pltpyy_di" bpmnElement="Event_0pltpyy">
+        <dc:Bounds x="752" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="737" y="142" width="67" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1abw6r9_di" bpmnElement="Flow_1abw6r9">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="270" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ar3i9j_di" bpmnElement="Flow_1ar3i9j">
+        <di:waypoint x="370" y="117" />
+        <di:waypoint x="430" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_099ku45_di" bpmnElement="Flow_099ku45">
+        <di:waypoint x="530" y="117" />
+        <di:waypoint x="590" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0b3jsmj_di" bpmnElement="Flow_0b3jsmj">
+        <di:waypoint x="690" y="117" />
+        <di:waypoint x="752" y="117" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
