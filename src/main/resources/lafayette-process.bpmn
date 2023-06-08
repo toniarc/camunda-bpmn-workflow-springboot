@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0bs89rh" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.11.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
-  <bpmn:process id="Process_0oxz6g2" name="lafayette-process" isExecutable="true">
+  <bpmn:process id="Process_0oxz6g2" name="lafayette-process" isExecutable="true" camunda:historyTimeToLive="10">
     <bpmn:startEvent id="StartEvent_1" name="Lafayette want to be involved in a Revolution">
       <bpmn:outgoing>Flow_1abw6r9</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:sequenceFlow id="Flow_1abw6r9" sourceRef="StartEvent_1" targetRef="Activity_1cj6h0l" />
-    <bpmn:sequenceFlow id="Flow_1ar3i9j" sourceRef="Activity_1cj6h0l" targetRef="Activity_020ot5r" />
-    <bpmn:userTask id="Activity_020ot5r" name="Get a Taxi">
+    <bpmn:sequenceFlow id="Flow_1abw6r9" sourceRef="StartEvent_1" targetRef="prepareForDeparture" />
+    <bpmn:sequenceFlow id="Flow_1ar3i9j" sourceRef="prepareForDeparture" targetRef="Activity_020ot5r" />
+    <bpmn:userTask id="Activity_020ot5r" name="Get a Taxi" camunda:formKey="camunda-forms:/forms/getTaxi.form">
       <bpmn:incoming>Flow_1ar3i9j</bpmn:incoming>
       <bpmn:outgoing>Flow_099ku45</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:userTask id="Activity_1cj6h0l" name="Prepare for Departure" camunda:formRef="form/prepareForDeparture.form" camunda:formRefBinding="latest">
+    <bpmn:userTask id="prepareForDeparture" name="Prepare for Departure" camunda:formKey="camunda-forms:/forms/prepareForDeparture.form">
       <bpmn:extensionElements />
       <bpmn:incoming>Flow_1abw6r9</bpmn:incoming>
       <bpmn:outgoing>Flow_1ar3i9j</bpmn:outgoing>
@@ -36,7 +36,7 @@
       <bpmndi:BPMNShape id="Activity_06igmwl_di" bpmnElement="Activity_020ot5r">
         <dc:Bounds x="430" y="77" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1mhzv2a_di" bpmnElement="Activity_1cj6h0l">
+      <bpmndi:BPMNShape id="Activity_1mhzv2a_di" bpmnElement="prepareForDeparture">
         <dc:Bounds x="270" y="77" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_01zdfgu_di" bpmnElement="Activity_01zdfgu">
